@@ -15,18 +15,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        node: [14.x, 12.x, 10.x]
+        node: [14.x, 12.x]
         exclude:
           # On Windows, run tests with only the latest environments.
           - os: windows-latest
-            node: 10.x
-          - os: windows-latest
-            node: 14.x
+            node: 12.x
           # On macOS, run tests with only the latest environments.
           - os: macOS-latest
-            node: 10.x
-          - os: macOS-latest
-            node: 14.x
+            node: 12.x
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -49,7 +45,7 @@ jobs:
 
       - name: Save ESLint results as JSON for sonar
         run: yarn lint --format json -o reports/eslint-results.json
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '12.x'
+        if: matrix.os == 'ubuntu-latest' && matrix.node == '14.x'
 
       - name: SonarCloud Scan
         run: |
@@ -58,7 +54,7 @@ jobs:
           .sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux/bin/sonar-scanner \
             -Dsonar.login=${{ secrets.SONAR_LOGIN }}
 
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '12.x'
+        if: matrix.os == 'ubuntu-latest' && matrix.node == '14.x'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
