@@ -37,7 +37,7 @@
     "husky": "latest",
     "jest": "26.6.3",
     "jest-circus": "26.6.3",
-    "jest-sonar": "0.2.11",
+    "jest-sonar": "0.2.12",
     "lint-staged": "latest",
     "npm-package-json-lint": "latest",
     "prettier": "latest",
