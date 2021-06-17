@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/walletpass/zip-store-stream/issues"
   },
-  "version": "1.1.5",
+  "version": "1.1.6",
   "main": "dist/index.js",
   "files": [
     "dist/*.d.ts",
@@ -24,7 +24,7 @@
     "test": " node --trace-warnings --unhandled-rejections=none --expose-gc node_modules/jest-cli/bin/jest --detectOpenHandles --logHeapUsage"
   },
   "dependencies": {
-    "@node-rs/crc32": "0.3.2"
+    "@node-rs/crc32": "1.1.2"
   },
   "devDependencies": {
     "@types/jest": "latest",
